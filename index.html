@@ -1,0 +1,588 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reiza | Personal Portfolio</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #080b18;
+            color: #eef2ff;
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .container {
+            width: min(1080px, 88%);
+            margin: auto;
+        }
+
+        /* NAVIGASI */
+        header {
+            border-bottom: 1px solid #202944;
+            background: rgba(8, 11, 24, 0.92);
+        }
+
+        nav {
+            min-height: 76px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .logo {
+            color: #67e8f9;
+            font-size: 20px;
+            font-weight: bold;
+            letter-spacing: 2px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 24px;
+            flex-wrap: wrap;
+        }
+
+        .nav-links a {
+            color: #a8b3cf;
+            font-size: 14px;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #67e8f9;
+        }
+
+        /* PEMBUKA */
+        .hero {
+            min-height: 590px;
+            display: grid;
+            grid-template-columns: 1.15fr 0.85fr;
+            align-items: center;
+            gap: 50px;
+            padding-top: 60px;
+            padding-bottom: 70px;
+        }
+
+        .eyebrow {
+            display: inline-block;
+            color: #67e8f9;
+            border: 1px solid #24465b;
+            background: #101d31;
+            padding: 7px 13px;
+            border-radius: 30px;
+            font-size: 12px;
+            letter-spacing: 1px;
+            margin-bottom: 22px;
+        }
+
+        h1 {
+            font-size: clamp(42px, 6vw, 70px);
+            line-height: 1.12;
+            margin-bottom: 20px;
+            letter-spacing: -2px;
+        }
+
+        .gradient-text {
+            background: linear-gradient(90deg, #67e8f9, #818cf8, #c084fc);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .hero-description {
+            color: #a8b3cf;
+            font-size: 16px;
+            max-width: 520px;
+            margin-bottom: 28px;
+        }
+
+        .buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 13px;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 12px 20px;
+            border-radius: 9px;
+            font-size: 14px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .button-primary {
+            background: linear-gradient(90deg, #22d3ee, #818cf8);
+            color: #080b18;
+        }
+
+        .button-secondary {
+            color: #dbeafe;
+            border: 1px solid #34415f;
+        }
+
+        .button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px #22d3ee22;
+        }
+
+        /* FOTO PROFIL */
+        .profile-area {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 340px;
+        }
+
+        .glow {
+            position: absolute;
+            width: 260px;
+            height: 260px;
+            background: linear-gradient(135deg, #22d3ee, #8b5cf6);
+            filter: blur(80px);
+            opacity: 0.28;
+            border-radius: 50%;
+        }
+
+        .profile-card {
+            position: relative;
+            width: 280px;
+            padding: 14px;
+            border-radius: 24px;
+            border: 1px solid #34415f;
+            background: linear-gradient(145deg, #17213a, #0d1225);
+            box-shadow: 0 20px 80px #00000055;
+            transform: rotate(2deg);
+            transition: transform 0.35s;
+        }
+
+        .profile-card:hover {
+            transform: rotate(0deg) translateY(-6px);
+        }
+
+        .profile-photo {
+            width: 100%;
+            height: 310px;
+            object-fit: cover;
+            display: block;
+            border-radius: 16px;
+            border: 1px solid #34415f;
+        }
+
+        .photo-caption {
+            padding: 13px 5px 4px;
+            color: #cbd5e1;
+            font-size: 13px;
+        }
+
+        .photo-caption span {
+            display: block;
+            color: #67e8f9;
+            font-size: 11px;
+            letter-spacing: 1px;
+        }
+
+        .floating-label {
+            position: absolute;
+            right: -14px;
+            bottom: 38px;
+            background: #111a30;
+            border: 1px solid #34415f;
+            border-radius: 10px;
+            padding: 11px 14px;
+            font-size: 12px;
+            color: #c4b5fd;
+        }
+
+        /* PEMISAH BAGIAN */
+        .section {
+            padding-top: 65px;
+            padding-bottom: 65px;
+            border-top: 1px solid #202944;
+        }
+
+        .section-label {
+            color: #67e8f9;
+            font-size: 12px;
+            letter-spacing: 3px;
+            margin-bottom: 8px;
+        }
+
+        .section-title {
+            font-size: 32px;
+            margin-bottom: 14px;
+            line-height: 1.3;
+        }
+
+        .section-description {
+            color: #a8b3cf;
+            max-width: 650px;
+            margin-bottom: 28px;
+        }
+
+        /* KARTU INFORMASI */
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 18px;
+        }
+
+        .card {
+            background: linear-gradient(145deg, #121a30, #0d1224);
+            border: 1px solid #263450;
+            border-radius: 15px;
+            padding: 23px;
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            border-color: #38bdf8;
+            transform: translateY(-5px);
+        }
+
+        .card-number {
+            color: #67e8f9;
+            font-size: 12px;
+            letter-spacing: 2px;
+            margin-bottom: 12px;
+        }
+
+        .card h3 {
+            font-size: 18px;
+            margin-bottom: 9px;
+        }
+
+        .card p {
+            color: #a8b3cf;
+            font-size: 14px;
+        }
+
+        /* DATA DIRI */
+        .about-box {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+
+        .info-item {
+            padding: 15px;
+            border-radius: 10px;
+            background: #111a2d;
+            border: 1px solid #263450;
+        }
+
+        .info-item span {
+            display: block;
+            color: #7f8da9;
+            font-size: 12px;
+            margin-bottom: 4px;
+        }
+
+        .info-item strong {
+            font-size: 14px;
+            overflow-wrap: anywhere;
+        }
+
+        /* PENUTUP */
+        .contact-box {
+            text-align: center;
+            padding: 42px 25px;
+            border: 1px solid #34415f;
+            border-radius: 20px;
+            background:
+                radial-gradient(ellipse at top, #192d4d, #101427 70%);
+        }
+
+        .contact-box .section-title {
+            margin-bottom: 13px;
+        }
+
+        .contact-box p {
+            color: #a8b3cf;
+            margin-bottom: 23px;
+        }
+
+        footer {
+            padding: 25px 0;
+            text-align: center;
+            color: #7f8da9;
+            font-size: 12px;
+        }
+
+        /* TAMPILAN HP */
+        @media (max-width: 760px) {
+            .container {
+                width: 90%;
+            }
+
+            nav {
+                padding: 18px 0;
+                align-items: flex-start;
+                flex-direction: column;
+            }
+
+            .nav-links {
+                gap: 17px;
+            }
+
+            .hero {
+                grid-template-columns: 1fr;
+                gap: 20px;
+                padding-top: 55px;
+            }
+
+            .profile-area {
+                min-height: 380px;
+            }
+
+            .cards {
+                grid-template-columns: 1fr;
+            }
+
+            .section {
+                padding-top: 45px;
+                padding-bottom: 45px;
+            }
+
+            h1 {
+                font-size: 46px;
+            }
+
+            .section-title {
+                font-size: 27px;
+            }
+
+            .profile-card {
+                width: min(280px, 90%);
+            }
+
+            .floating-label {
+                right: 0;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            html {
+                scroll-behavior: auto;
+            }
+
+            *, *::before, *::after {
+                transition: none !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <nav class="container">
+            <a href="#home" class="logo">REIZA.</a>
+
+            <div class="nav-links">
+                <a href="#home">Beranda</a>
+                <a href="#about">Tentang</a>
+                <a href="#interests">Minat</a>
+                <a href="#contact">Penutup</a>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <div class="container">
+
+            <section class="hero" id="home">
+
+                <div>
+                    <p class="eyebrow">
+                        PERSONAL PORTFOLIO / 2026
+                    </p>
+
+                    <h1>
+                        Halo, aku<br>
+                        <span class="gradient-text">Reiza.</span>
+                    </h1>
+
+                    <p class="hero-description">
+                        Mahasiswa Teknik Logistik di Universitas
+                        Pendidikan Indonesia. Sedang belajar,
+                        berkembang, dan mengeksplorasi bagaimana
+                        teknologi bisa memberi dampak positif.
+                    </p>
+
+                    <div class="buttons">
+                        <a href="#about" class="button button-primary">
+                            Kenali Saya →
+                        </a>
+
+                        <a href="#interests" class="button button-secondary">
+                            Lihat Minat Saya
+                        </a>
+                    </div>
+                </div>
+
+                <div class="profile-area">
+                    <div class="glow"></div>
+
+                    <div class="profile-card">
+                        <img
+                            src="foto-reiza.jpeg"
+                            alt="Foto profil Reiza Ramadhan Syahputra"
+                            class="profile-photo"
+                        >
+
+                        <p class="photo-caption">
+                            Reiza Ramadhan Syahputra
+                            <span>LOGISTICS ENGINEERING STUDENT</span>
+                        </p>
+                    
+
+            </section>
+
+            <section class="section" id="about">
+                <p class="section-label">01 / ABOUT ME</p>
+
+                <h2 class="section-title">
+                    Sedikit Tentang Saya
+                </h2>
+
+                <p class="section-description">
+                    Saya merupakan mahasiswa Teknik Logistik yang
+                    tertarik pada pengembangan diri, teknologi, dan
+                    proses pembelajaran hal baru. Bagi saya,
+                    setiap pengalaman merupakan kesempatan untuk
+                    menambah pengetahuan dan kemampuan.
+                </p>
+
+                <div class="about-box">
+                    <div class="info-item">
+                        <span>NAMA LENGKAP</span>
+                        <strong>Reiza Ramadhan Syahputra</strong>
+                    </div>
+
+                    <div class="info-item">
+                        <span>PROGRAM STUDI</span>
+                        <strong>Teknik Logistik</strong>
+                    </div>
+
+                    <div class="info-item">
+                        <span>UNIVERSITAS</span>
+                        <strong>Universitas Pendidikan Indonesia</strong>
+                    </div>
+
+                    <div class="info-item">
+                        <span>HOBI</span>
+                        <strong>Bermimpi alias tidur</strong>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section" id="interests">
+                <p class="section-label">02 / WHAT I EXPLORE</p>
+
+                <h2 class="section-title">
+                    Hal yang Menarik bagi Saya
+                </h2>
+
+                <p class="section-description">
+                    Beberapa bidang yang relevan dengan perjalanan
+                    belajar dan pengembangan kemampuan saya.
+                </p>
+
+                <div class="cards">
+                    <article class="card">
+                        <p class="card-number">01 — LOGISTICS</p>
+
+                        <h3>Dunia Logistik</h3>
+
+                        <p>
+                            Mempelajari proses distribusi,
+                            pengelolaan persediaan, dan bagaimana
+                            sistem logistik dapat berjalan lebih efektif.
+                        </p>
+                    </article>
+
+                    <article class="card">
+                        <p class="card-number">02 — TECHNOLOGY</p>
+
+                        <h3>Teknologi</h3>
+
+                        <p>
+                            Mengenal pemanfaatan teknologi dan
+                            pemrograman untuk mendukung pembelajaran
+                            serta penyelesaian masalah.
+                        </p>
+                    </article>
+
+                    <article class="card">
+                        <p class="card-number">03 — GROWTH</p>
+
+                        <h3>Pengembangan Diri</h3>
+
+                        <p>
+                            Terus menambah pengalaman, memperluas
+                            wawasan, dan membangun kemampuan untuk
+                            menghadapi tantangan baru.
+                        </p>
+                    </article>
+                </div>
+            </section>
+
+            <section class="section" id="contact">
+                <div class="contact-box">
+                    <p class="section-label">03 / THE JOURNEY</p>
+
+                    <h2 class="section-title">
+                        Ini Baru Permulaan.
+                    </h2>
+
+                    <p>
+                        Setiap proses adalah bagian dari perjalanan
+                        untuk menjadi lebih baik. Terima kasih telah
+                        mengenal saya melalui website ini!
+                    </p>
+
+                    <a
+                        href="https://www.instagram.com/reizarmdhn?cplk=dXcybjA4MXFpNzVo"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="button button-primary"
+                    >
+                        Kunjungi Media Sosial Saya ↗
+                    </a>
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            © 2026 Reiza Ramadhan Syahputra |
+            Built with HTML & CSS
+        </div>
+    </footer>
+
+</body>
+</html>
